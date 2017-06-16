@@ -1,0 +1,79 @@
+using postman
+1. KRS
+
+GET: 
+http://localhost/webservices/rest/restkrs.php/krs
+http://localhost/webservices/rest/restkrs.php/krs/l200134017
+///http://localhost/webservices/rest/restkrs.php/krs/TIF50831
+
+
+//PUT -> UPDATE: 
+http://localhost/webservices/rest/restkrs.php/krs/l200134017
+
+{"code": "TIF61733"}
+
+//POST -> CREATE 
+http://localhost/webservices/rest/restkrs.php/krs
+{"nim":"l200144024", "code":"TIF50831", "semester":"8"}
+
+
+DELETE
+http://localhost/webservices/rest/restkrs.php/krs/l200134017
+http://localhost/webservices/rest/restkrs.php/krs/TIF50831
+
+*/
+//END TEST
+
+subject
+using Postman
+/*
+GET: 
+http://localhost/webservices/rest/restsubject.php/subjects
+GET: 
+http://localhost/webservices/rest/restsubject.php/subjects/TIF50831
+
+//PUT -> UPDATE: 
+http://localhost/webservices/rest/restsubject.php/subjects/TIF50831
+
+{"code": "TIF50831",
+        "title": "(SIE) Prak. Data Warehousing dan Data Mining",
+        "semester": 8,}
+
+POST -> CREATE 
+http://localhost/webservices/rest/restsubject.php/subjects 
+{"code":"ums1200", "title":"algorithma"}
+DELETE
+http://localhost/webservices/rest/restsubject.php/subjects/ums1200
+
+*/
+//END TEST
+
+
+//TEST using Postman
+/*
+GET: 
+http://localhost/webservices/rest/reststudent.php/students
+http://localhost/webservices/rest/reststudent.php/students/l200134017
+
+
+//PUT -> UPDATE: 
+http://localhost/webservices/rest/reststudent.php/students/l200134017
+
+
+POST -> CREATE 
+
+http://localhost/webservices/rest/reststudent.php/students
+{"name":"ike wartin", "nim":"l200174001"}
+
+DELETE
+http://localhost/webservices/rest/reststudent.php/students
+
+*/
+//END TEST
+
+
+SELECT * FROM krs JOIN students, subjects WHERE krs.id_student = students.id AND krs.id_subject = subjects.id
+
+SELECT subjects.code AS codemk, subjects.title as matakuliah FROM krs JOIN students, subjects WHERE krs.id_student = students.id AND krs.id_subject = subjects.id and students.nim='l200144006'
+
+SELECT students.nim,students.name FROM krs JOIN students, subjects WHERE krs.id_student = students.id AND krs.id_subject = subjects.id and subjects.code='TIF50231'
